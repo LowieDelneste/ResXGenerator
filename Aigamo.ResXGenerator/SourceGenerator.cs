@@ -16,7 +16,7 @@ public class SourceGenerator : IIncrementalGenerator
 
 		// Note: Each Resx file will get a hash (random guid) so we can easily differentiate in the pipeline when the file changed or just some options
 		var allResxFiles = context.AdditionalTextsProvider.Where(static af => af.Path.EndsWith(".resx"))
-			.Select(static (f, _) => new AdditionalTextWithHash(f, Guid.NewGuid()));
+			.Select(static (f, _) => new AdditionalTextWithHash(f));
 
 		var monitor = allResxFiles
 			.Collect()
